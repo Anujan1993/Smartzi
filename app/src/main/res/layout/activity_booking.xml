@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_background">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Up_uname"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="30dp"
+            android:hint="@string/Hint_Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Up_Phone_numberMain"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="@string/Hint_Mobile_No"
+            app:layout_constraintEnd_toEndOf="@+id/Up_uname"
+            app:layout_constraintStart_toStartOf="@+id/Up_uname"
+            app:layout_constraintTop_toBottomOf="@+id/Up_uname"
+            app:startIconDrawable="@drawable/ic_baseline_phone_android_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Up_Phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Main_Destination"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="@string/Destination"
+            app:layout_constraintEnd_toEndOf="@+id/Driver_uname"
+            app:layout_constraintStart_toStartOf="@+id/Driver_uname"
+            app:layout_constraintTop_toBottomOf="@+id/Driver_uname"
+            app:startIconDrawable="@drawable/ic_baseline_domain_verification_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/Up_Post_AddressMain"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:entries="@array/payment_arrays"
+            android:paddingRight="0dp"
+            android:popupElevation="15dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="@+id/Up_Phone_numberMain"
+            app:layout_constraintStart_toStartOf="@+id/Up_Phone_numberMain"
+            app:layout_constraintTop_toBottomOf="@+id/Up_Phone_numberMain"
+            tools:ignore="MissingConstraints,UnusedAttribute" />
+
+        <LinearLayout
+            android:id="@+id/leanerL2"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/leanerL"
+            app:layout_constraintStart_toStartOf="@+id/leanerL"
+            app:layout_constraintTop_toBottomOf="@+id/leanerL">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Booking_in_date_Main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:hint="@string/Booking_date"
+                app:startIconDrawable="@drawable/ic_baseline_calendar_today_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Booking_in_date"
+                    android:editable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Booking_in_time_Main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:hint="@string/Booking_time"
+                app:startIconDrawable="@drawable/ic_baseline_access_time_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Booking_in_time"
+                    android:editable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/leanerL"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/Main_Destination"
+            app:layout_constraintStart_toStartOf="@+id/Main_Destination"
+            app:layout_constraintTop_toBottomOf="@+id/Main_Destination">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Trip_in_date"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:hint="@string/Trip_date"
+                app:startIconDrawable="@drawable/ic_baseline_calendar_today_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/in_date"
+                    android:editable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/Trip_in_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:hint="@string/Trip_time"
+                app:startIconDrawable="@drawable/ic_baseline_access_time_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/in_time"
+                    android:editable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Driver_uname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="@string/Driver_Name"
+            app:layout_constraintEnd_toEndOf="@+id/Up_Post_AddressMain"
+            app:layout_constraintStart_toStartOf="@+id/Up_Post_AddressMain"
+            app:layout_constraintTop_toBottomOf="@+id/Up_Post_AddressMain"
+            app:startIconDrawable="@drawable/ic_baseline_drive_eta_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/DriverName"
+                android:editable="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/Book_in_date_Main"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginRight="30dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:hint="@string/Booking_date"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/leanerL"-->
+<!--            app:startIconDrawable="@drawable/ic_baseline_calendar_today_24">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/Book_in_date"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/in_date"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginStart="30dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:editable="false"-->
+<!--            android:hint="@string/Trip_date_time"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/Main_Destination" />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/in_time"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/in_date"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginStart="30dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:editable="false"-->
+<!--            android:hint="@string/Booking_date_time"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/in_date" />-->
+
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/book_now_button"
+            android:text="@string/BookNow"
+            android:textColor="#fff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/leanerL2"
+            app:layout_constraintStart_toStartOf="@+id/leanerL2"
+            app:layout_constraintTop_toBottomOf="@+id/leanerL2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

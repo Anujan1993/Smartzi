@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Smartzi</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="maps_api_key">AIzaSyBOcIdQuy59IEcF4XLMSuZrPJ1UQhKhrKc</string>
+    <string name="permission_denied_explanation">
+        You need to grant location permission.
+    </string>
+    <string name="Hint_Name">Name</string>
+    <string name="Hint_Mobile_No">Mobile No</string>
+    <string name="Trip_date">Trip date</string>
+    <string name="Trip_time">Trip time</string>
+    <string name="Driver_Name">Driver Name</string>
+    <string name="Payment_typr">Payment type</string>
+    <string name="Booking_date">Booking date</string>
+    <string name="Booking_time">Booking time</string>
+    <string name="Destination">Destination</string>
+    <string name="BookNow">Book Now</string>
+
+
+    <string name="settings">Settings</string>
+    <string name="location_setting_off">Please turn on device location in Settings and try again.
+    </string>
+    <string name="location_required_error">Location services must be enabled for this game.</string>
+
+    <string-array name="payment_arrays">
+        <item>Credit card</item>
+        <item>Cash</item>
+    </string-array>
+</resources>
