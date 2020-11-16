@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Smartzi</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Smartzi</string>
     <string name="maps_api_key">AIzaSyBOcIdQuy59IEcF4XLMSuZrPJ1UQhKhrKc</string>
     <string name="permission_denied_explanation">
         You need to grant location permission.

@@ -14,8 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Smartzi">
-        <activity android:name=".PermissionsNeedActivity"></activity>
-        <activity android:name=".BlankActivity" />
         <activity android:name=".InitActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,14 +22,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".BookingActivity" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/maps_api_key" />
-
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />

@@ -2,8 +2,10 @@ package com.example.smartzi
 
 import android.Manifest
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
@@ -16,20 +18,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 
 
-open class InitActivity : AppCompatActivity() {
+class InitActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+    // check weather Location is enabled or not on your mobile
     fun locationEnable():Boolean{
         val manager = getSystemService( Context.LOCATION_SERVICE ) as LocationManager
         return manager.isProviderEnabled( LocationManager.GPS_PROVIDER )
     }
+    // check weather Internet is enabled or not on your mobile
     fun internetConnection(): Boolean {
         val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
         return activeNetwork?.isConnectedOrConnecting == true
     }
+
+    // Define the action if the Internet is enabled or not and Location is enabled or not on your mobile
     fun internetLocationCheck(){
         val connection = internetConnection()
 
@@ -53,6 +59,7 @@ open class InitActivity : AppCompatActivity() {
             )
         }
     }
+    // get Permissions
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>, grantResults: IntArray
@@ -81,7 +88,7 @@ open class InitActivity : AppCompatActivity() {
             }
         }
     }
-    open fun dialogBoxBase(title: String, BodyMessage: String,action:String?) {
+    fun dialogBoxBase(title: String, BodyMessage: String,action:String?) {
         /*** Get Articles for list  */
         val dialog = AlertDialog.Builder(this)
             .setCancelable(false)
@@ -103,6 +110,8 @@ open class InitActivity : AppCompatActivity() {
                 }
             }
         }
+        dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.CYAN)
+        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.CYAN)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

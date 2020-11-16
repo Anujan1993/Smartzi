@@ -27,6 +27,7 @@ class BookingActivity : AppCompatActivity() , View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
 
+
         txtDate=findViewById(R.id.in_date)
         txtTime=findViewById(R.id.in_time)
         driverN = findViewById(R.id.DriverName)
@@ -52,6 +53,7 @@ class BookingActivity : AppCompatActivity() , View.OnClickListener {
         txtTime.setOnClickListener(this)
 
     }
+    // Date picker and Time picker
     override fun onClick(v: View?) {
         if (v == txtDate) {
             // Get Current Date
@@ -59,7 +61,6 @@ class BookingActivity : AppCompatActivity() , View.OnClickListener {
             mYear = c.get(Calendar.YEAR)
             mMonth = c.get(Calendar.MONTH)
             mDay = c.get(Calendar.DAY_OF_MONTH)
-
 
             val datePickerDialog = DatePickerDialog(
                 this,
