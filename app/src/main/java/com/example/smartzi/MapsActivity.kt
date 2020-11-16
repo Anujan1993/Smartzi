@@ -15,6 +15,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -28,23 +29,27 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 
-class MapsActivity : InitActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var fusedLocationClient: FusedLocationProviderClient
     private val driverA = LatLng(13.068500, 80.234938)
     private val driverB = LatLng(13.062306, 80.231172)
     private val driverC = LatLng(13.071086, 80.230709)
-    private var locatinArray: ArrayList<Drivers> = ArrayList()
     private lateinit var bookNow:Button
     private var minDistance: Float = 1000F
     private var driverName:String? = null
+
+    var locatinArray: ArrayList<Drivers> = ArrayList()
+    var myLatitude: Double = 0.0
+    var myLongitude: Double = 0.0
+    lateinit var fusedLocationClient: FusedLocationProviderClient
 
     @SuppressLint("MissingPermission")
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+        var toolbar:Toolbar
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -67,35 +72,35 @@ class MapsActivity : InitActivity(), OnMapReadyCallback {
         driverCLocation.longitude = 80.230709
         locatinArray.add(Drivers("Drivers C",driverCLocation))
 
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         fusedLocationClient.lastLocation
-            .addOnSuccessListener { location: Location? ->
-                //builderGeofence(location!!.latitude,location.longitude, 2F)
-                val currentLocation = LatLng(location!!.latitude, location.longitude)
-                mMap.addMarker(MarkerOptions().position(currentLocation).title("Your Location"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation))
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(12F), 2000, null)
+                .addOnSuccessListener { location: Location? ->
+                    val myLocation = Location("myLocation")
+                    myLocation.latitude = location!!.latitude
+                    myLocation.longitude = location.longitude
 
-                val circleOptions: CircleOptions =  CircleOptions()
-                    .center(
-                        LatLng(
-                            location.latitude,
-                            location.longitude
-                        )
-                    )
-                .radius(1000.00)
-                .fillColor(0x40ff0000)
-                    .strokeColor(Color.TRANSPARENT)
-                .strokeWidth(2.toFloat());
-                mMap.addCircle(circleOptions)
-                val myLocation = Location("myLocation")
-                myLocation.latitude = location!!.latitude
-                myLocation.longitude = location.longitude
+                    myLatitude = location.latitude
+                    myLongitude = location.longitude
 
-
-                distanceCal(locatinArray,myLocation)
-            }
+                    val currentLocation = LatLng(myLatitude, myLongitude)
+                    mMap.addMarker(MarkerOptions().position(currentLocation).title("Your Location"))
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation))
+                    mMap.animateCamera(CameraUpdateFactory.zoomTo(12F), 2000, null)
+                    val circleOptions: CircleOptions =  CircleOptions()
+                            .center(
+                                    LatLng(
+                                            myLatitude,
+                                            myLongitude
+                                    )
+                            )
+                            .radius(1000.00)
+                            .fillColor(0x40ff0000)
+                            .strokeColor(Color.TRANSPARENT)
+                            .strokeWidth(2.toFloat());
+                    mMap.addCircle(circleOptions)
+                    distanceCal(locatinArray,myLocation)
+                }
 
         bookNow.setOnClickListener{
             val intent = Intent(this@MapsActivity, BookingActivity::class.java)
@@ -117,7 +122,6 @@ class MapsActivity : InitActivity(), OnMapReadyCallback {
 
         mMap.addMarker(MarkerOptions().position(driverC).title("Driver C"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(driverC))
-
     }
     fun distanceCal(arrayLoaction: ArrayList<Drivers>, loc1: Location) {
 

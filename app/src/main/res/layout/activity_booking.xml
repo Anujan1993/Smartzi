@@ -29,6 +29,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/userName"
                 android:layout_width="match_parent"
+                android:backgroundTint="@color/whiteT"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -48,6 +49,7 @@
                 android:id="@+id/Up_Phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/whiteT"
                 android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -68,6 +70,7 @@
                 android:id="@+id/Destination"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/whiteT"
                 android:inputType="number" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -80,6 +83,7 @@
             android:entries="@array/payment_arrays"
             android:paddingRight="0dp"
             android:popupElevation="15dp"
+            android:background="@color/whiteT"
             android:spinnerMode="dropdown"
             app:layout_constraintEnd_toEndOf="@+id/Up_Phone_numberMain"
             app:layout_constraintStart_toStartOf="@+id/Up_Phone_numberMain"
@@ -109,6 +113,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Booking_in_date"
                     android:editable="false"
+                    android:backgroundTint="@color/whiteT"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -125,6 +130,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Booking_in_time"
                     android:editable="false"
+                    android:backgroundTint="@color/whiteT"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -153,6 +159,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/in_date"
                     android:editable="false"
+                    android:backgroundTint="@color/whiteT"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -169,6 +176,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/in_time"
                     android:editable="false"
+                    android:backgroundTint="@color/whiteT"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -188,6 +196,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/DriverName"
                 android:editable="false"
+                android:backgroundTint="@color/whiteT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
